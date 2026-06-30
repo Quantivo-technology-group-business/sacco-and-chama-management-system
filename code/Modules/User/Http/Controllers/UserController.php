@@ -52,10 +52,12 @@ class UserController extends Controller
             $query->orderBy($orderBy, $orderByDir);
         })
             ->when($search, function (Builder $query) use ($search) {
-                $query->where('first_name', 'like', "%$search%");
-                $query->orWhere('last_name', 'like', "%$search%");
-                $query->orWhere('email', 'like', "%$search%");
-                $query->orWhere('phone', 'like', "%$search%");
+                $query->where(function($query) use ($search) {
+                    $query->where('first_name', 'like', "%$search%");
+                    $query->orWhere('last_name', 'like', "%$search%");
+                    $query->orWhere('email', 'like', "%$search%");
+                    $query->orWhere('phone', 'like', "%$search%");
+                });
             })
             ->paginate($perPage)
             ->appends($request->input());
