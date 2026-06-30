@@ -1,0 +1,21 @@
+{
+    "name": "nwidart/chama",
+    "description": "",
+    "authors": [
+        {
+            "name": "Tererai Mugova",
+            "email": "tj@webstudio.co.zw"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {}
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Chama\\": ""
+        }
+    }
+}

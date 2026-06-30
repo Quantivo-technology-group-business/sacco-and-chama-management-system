@@ -1,0 +1,17 @@
+{
+  "name": "Chama",
+  "alias": "chama",
+  "description": "Chama/Merry-Go-Round Module",
+  "keywords": [],
+  "active": 1,
+  "is_core": 0,
+  "version": "1.0",
+  "order": 31,
+  "providers": [
+    "Modules\\Chama\\Providers\\ChamaServiceProvider",
+    "Modules\\Chama\\Providers\\RouteServiceProvider"
+  ],
+  "aliases": {},
+  "files": [],
+  "requires": []
+}
