@@ -61,6 +61,9 @@
             <li><a href="{{url('portal/client')}}"><i class="fa fa-user"></i>
                     <span>{{trans_choice('client::general.client', 1) . ' ' . trans_choice('core::general.profile', 1)}}</span></a>
             </li>
+            <li><a href="{{url('portal/chama')}}"><i class="fa fa-sync"></i>
+                    <span>My Chamas</span></a>
+            </li>
         </ul>
 
     </section>

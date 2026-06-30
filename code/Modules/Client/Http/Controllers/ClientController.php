@@ -55,12 +55,14 @@ class ClientController extends Controller
                 $query->orderBy($orderBy, $orderByDir);
             })
             ->when($search, function (Builder $query) use ($search) {
-                $query->where('clients.first_name', 'like', "%$search%");
-                $query->orWhere('clients.last_name', 'like', "%$search%");
-                $query->orWhere('clients.account_number', 'like', "%$search%");
-                $query->orWhere('clients.mobile', 'like', "%$search%");
-                $query->orWhere('clients.external_id', 'like', "%$search%");
-                $query->orWhere('clients.email', 'like', "%$search%");
+                $query->where(function($query) use ($search) {
+                    $query->where('clients.first_name', 'like', "%$search%");
+                    $query->orWhere('clients.last_name', 'like', "%$search%");
+                    $query->orWhere('clients.account_number', 'like', "%$search%");
+                    $query->orWhere('clients.mobile', 'like', "%$search%");
+                    $query->orWhere('clients.external_id', 'like', "%$search%");
+                    $query->orWhere('clients.email', 'like', "%$search%");
+                });
             })
             ->when($status, function ($query) use ($status) {
                 $query->where('clients.status', $status);

@@ -3,23 +3,39 @@
     {{ trans_choice('client::general.client',2) }}
 @endsection
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('assets/plugins/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 @stop
 @section('content')
-    <div class="box box-primary">
-        <div class="box-header with-border">
-            <h3 class="box-title">{{ trans_choice('client::general.client',2) }}</h3>
-
-            <div class="box-tools pull-right">
-
-                <a href="{{ url('client/create') }}" class="btn btn-info btn-sm">
-                    {{ trans_choice('core::general.add',1) }} {{ trans_choice('client::general.client',1) }}
-                </a>
-
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>{{ trans_choice('client::general.client',2) }}</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a
+                                    href="{{url('dashboard')}}">{{ trans_choice('dashboard::general.dashboard',1) }}</a>
+                        </li>
+                        <li class="breadcrumb-item active">{{ trans_choice('client::general.client',2) }}</li>
+                    </ol>
+                </div>
             </div>
-        </div>
-        <div class="box-body table-responsive">
-            <table class="table  table-striped table-hover table-condensed" id="data-table">
+        </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">{{ trans_choice('client::general.client',2) }}</h3>
+
+                <div class="card-tools">
+                    <a href="{{ url('client/create') }}" class="btn btn-info btn-sm">
+                        <i class="fas fa-plus"></i> {{ trans_choice('core::general.add',1) }} {{ trans_choice('client::general.client',1) }}
+                    </a>
+                </div>
+            </div>
+            <div class="card-body table-responsive">
+                <table class="table  table-striped table-hover table-condensed" id="data-table">
                 <thead>
                 <tr>
                     <th>{{ trans_choice('core::general.name',1) }}</th>
@@ -36,10 +52,11 @@
             </table>
         </div>
     </div>
+    </section>
 @endsection
 @section('scripts')
-    <script src="{{ asset('assets/plugins/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
     <script>
         $('#data-table').DataTable({
             processing: true,

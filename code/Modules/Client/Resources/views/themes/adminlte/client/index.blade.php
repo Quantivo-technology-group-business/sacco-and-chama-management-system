@@ -214,15 +214,12 @@
             <div class="card-footer">
                 <div class="row">
                     <div class="col-md-4">
-                        <div>{{ trans_choice('core::general.page',1) }} {{$data->currentPage()}} {{ trans_choice('core::general.of',1) }} {{$data->lastPage()}}</div>
+                        <div>{{ trans_choice('core::general.page',1) }} {{$data->currentPage()}} {{ trans_choice('core::general.of',1) }} {{$data->lastPage()}} ({{$data->total()}} {{ trans_choice('core::general.record',2) }})</div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="d-flex justify-content-center">
+                    <div class="col-md-8  table-responsive">
+                        <div class="float-right">
                             {{$data->links()}}
                         </div>
-                    </div>
-                    <div class="col-md-4">
-
                     </div>
                 </div>
 
